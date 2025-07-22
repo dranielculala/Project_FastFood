@@ -11,13 +11,14 @@
 
 <body>
     <div class="container d-flex justify-content-center align-items-center">
-
-
         <!--Login -->
         <div id="form">
+            <!-- Alert box -->
+            <div class="alert alert-danger d-none mt-1 mb-1" id="alert" role="alert">
+            </div>
             <div class="mb-3">
-                <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email_login">
+                <label for="username" class="form-label">User name</label>
+                <input type="text" class="form-control" id="username">
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
@@ -25,25 +26,24 @@
             </div>
 
             <div class="mb-3">
-                <label for="user-type" class="form-label">User Type</label>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected> --- </option>
-                    <option value="1">Cliente</option>
-                    <option value="2">Ristoratore</option>
-                    <option value="3">Admin</option>
+                <label for="user_type" class="form-label">User Type</label>
+                <select class="form-select" id="user_type">
+                    <option selected value="undefined"> --- </option>
+                    <option value="cliente">Cliente</option>
+                    <option value="ristoratore">Ristoratore</option>
+                    <option value="admin">Admin</option>
                 </select>
             </div>
             <div class="mb-3">
                 <button class="btn btn-success" onclick="login()">Login</button>
             </div>
+
             <div class="mb-3">
                 <p>
                     Oppure registrati <a href="registrazione.html"> qui</a>
                 </p>
             </div>
         </div>
-
-
 
     </div>
     <script src="scripts/login.js"></script>
