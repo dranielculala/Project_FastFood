@@ -6,6 +6,7 @@ const mongoURL = "mongodb+srv://dramanard:FoOfEvndy152zdM6@cluster0.zmfjoen.mong
 const client = new MongoClient(mongoURL);
 const app = express();
 const port = 3000;
+const DB_NAME = 'Fastfood';
 
 app.use(express.json())
 app.use(cors())
@@ -38,7 +39,7 @@ app.post('/user/login', async (req, res) => {
     await client.connect();
     const filter = { username: username, password: password, user_type: user_type }
     const user = await client
-    .db('Fastfood')
+    .db(DB_NAME)
     .collection('users')
     .findOne(filter);
 
