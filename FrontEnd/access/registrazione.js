@@ -29,14 +29,18 @@
 
     fetch("http://localhost:3000/user/register", options)
         .then(response => response.json())
-        .then(result => checkRegistration(result));
+        .then(result => {
+            console.log(result);
+            if (!result.error) {
+                alert(result.message);
+                localStorage.setItem('id_user', result.id);
+                localStorage.setItem('username', result.username);
+                window.location.href = "../profile/profile.html";
+            } else {
+                alert(result.error);
+            }
+        });
  }
-
-function checkRegistration(result) {
-    console.log(result)
-    console.log('whatz');
-}
-
 function isValid() {
     var valid = true;
     const regexEmail = /^[A-z0-9\.\+_-]+@[A-z0-9\._-]+\.[A-Za-z]{2,6}$/;
@@ -75,6 +79,7 @@ function isValid() {
         error.innerHTML += "<br> Le password non corrispondono.";
     }
 
+    // User type check
     if( cUser_type === "undefined") {
         valid = false;
         error.innerHTML += "<br> Scegliere il tipo di utente.";
