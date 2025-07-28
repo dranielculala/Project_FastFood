@@ -32,6 +32,6 @@ function checkLogin(result) {
         localStorage.setItem('user_id', result._id);
         alert.classList.add('d-none');
         var form = document.getElementById('form');
-        form.classList.add('d-none'); F
+        form.classList.add('d-none'); 
     }
 }
